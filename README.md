@@ -11,20 +11,51 @@ Two machine learning projects covering classification and regression on real-wor
 ## Repository Structure
 
 ```
-├── diabetes_prediction/
-│   ├── diabetes.csv
-│   └── diabetes_classification.ipynb
-│
-├── housing_price_prediction/
+├── Task1/
 │   ├── nyc_housing_base.csv
 │   └── Regression_on_Housing_dataset.ipynb
+|   └── LinearRegression_From_Scratch.docx
+│
+├── Task-2/
+│   ├── diabetes.csv
+│   └── Classification_on_Diabetes_dataset (1).ipynb
+|   └── ML4e_Task2_document.docx
 │
 └── README.md
 ```
 
 ---
 
-## Project 1 — Diabetes Prediction
+## Project 1 — NYC Housing Price Prediction and  and Logistic Regression from Scratch
+
+Predicting property sale prices using Linear Regression implemented from scratch in pure NumPy — no scikit-learn model used.
+
+### Dataset
+NYC housing records with features: building_age, landuse, borough_x, block. Target: sale_price. Preprocessing includes duplicate removal, missing value imputation, IQR outlier removal, and StandardScaler normalisation.
+
+### Models Built from Scratch
+
+**MYLR (Simple Linear Regression)** — works with a single feature. Uses the Ordinary Least Squares closed-form formula to find the exact slope and intercept in one pass with no iteration.
+
+**MYLR_Multiple (Multiple Linear Regression)** — works with all four features. Uses Gradient Descent to iteratively update one weight per feature and a bias term over 1000 epochs, minimising Mean Squared Error.
+
+| | MYLR | MYLR_Multiple |
+|---|---|---|
+| Features | Single only | Any number |
+| Method | OLS — exact formula | Gradient Descent |
+| Iterations | None | 1000 epochs |
+| Used for housing data | No | Yes |
+
+---
+
+## Setup
+
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn
+```
+
+---
+## Project 2 — Diabetes Prediction and Linear Regression from Scratch
 
 Predicting whether a patient is diabetic or non-diabetic using three classification algorithms.
 
@@ -58,40 +89,4 @@ The 18 false negatives (diabetic patients predicted as healthy) are the most cri
 
 ---
 
-## Project 2 — NYC Housing Price Prediction
 
-Predicting property sale prices using Linear Regression implemented from scratch in pure NumPy — no scikit-learn model used.
-
-### Dataset
-NYC housing records with features: building_age, landuse, borough_x, block. Target: sale_price. Preprocessing includes duplicate removal, missing value imputation, IQR outlier removal, and StandardScaler normalisation.
-
-### Models Built from Scratch
-
-**MYLR (Simple Linear Regression)** — works with a single feature. Uses the Ordinary Least Squares closed-form formula to find the exact slope and intercept in one pass with no iteration.
-
-**MYLR_Multiple (Multiple Linear Regression)** — works with all four features. Uses Gradient Descent to iteratively update one weight per feature and a bias term over 1000 epochs, minimising Mean Squared Error.
-
-| | MYLR | MYLR_Multiple |
-|---|---|---|
-| Features | Single only | Any number |
-| Method | OLS — exact formula | Gradient Descent |
-| Iterations | None | 1000 epochs |
-| Used for housing data | No | Yes |
-
----
-
-## Setup
-
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
-```
-
----
-
-## Key Takeaways
-
-- Glucose is the most important feature for diabetes — it drives the root split in the Decision Tree and carries the highest weight in Logistic Regression.
-- Random Forest gives the best accuracy by combining many trees and averaging out individual errors.
-- Recall is more important than Accuracy in medical classification — missing a diabetic patient is more harmful than a false alarm.
-- StandardScaler is essential before Gradient Descent because features with different scales cause uneven weight updates.
-- Building Linear Regression from scratch makes the math explicit — OLS shows why slope equals covariance over variance, and Gradient Descent shows how weights converge step by step.
