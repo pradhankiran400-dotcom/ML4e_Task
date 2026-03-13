@@ -18,7 +18,7 @@ Two machine learning projects covering classification and regression on real-wor
 │
 ├── Task-2/
 │   ├── diabetes.csv
-│   └── Classification_on_Diabetes_dataset (1).ipynb
+│   └── Classification_on_Diabetes_dataset.ipynb
 |   └── ML4e_Task2_document.docx
 │
 └── README.md
